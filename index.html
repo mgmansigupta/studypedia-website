@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studypedia — Tutoring & IELTS Preparation, Toronto & GTA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#0D3D2B;
+  --forest2:#0A3024;
+  --forest-light:#1A5C40;
+  --gold:#E8952A;
+  --gold2:#C97B1A;
+  --cream:#FDF8F0;
+  --cream2:#F5EFE4;
+  --white:#FFFFFF;
+  --ink:#1A1A1A;
+  --body:#3D4A3E;
+  --muted:#6B7A6C;
+  --border:#E2DDD6;
+  --display:'Fraunces',Georgia,serif;
+  --sans:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--body);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:var(--forest);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:var(--display);font-size:22px;font-weight:700;color:var(--white);letter-spacing:-0.3px}
+.nav-logo span{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{color:var(--gold);font-size:14px;font-weight:600;text-decoration:none}
+.nav-cta{background:var(--gold);color:var(--white);font-weight:700;font-size:13px;padding:9px 20px;border-radius:6px;text-decoration:none;transition:background 0.15s;white-space:nowrap}
+.nav-cta:hover{background:var(--gold2)}
+@media(max-width:560px){.nav-phone{display:none}}
+
+/* HERO */
+.hero{background:var(--forest);padding:72px 6% 0;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto}
+.hero-eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.hero h1{font-family:var(--display);font-size:clamp(36px,5vw,62px);font-weight:700;color:var(--white);line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px;max-width:700px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.7;max-width:520px;margin-bottom:40px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:64px}
+.btn-gold{background:var(--gold);color:var(--white);font-family:var(--sans);font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none;transition:background 0.15s;display:inline-flex;align-items:center;gap:8px}
+.btn-gold:hover{background:var(--gold2)}
+.btn-outline{background:transparent;color:var(--white);font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);transition:all 0.15s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* OFFER CARDS — the signature element */
+.offer-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:1100px;margin:0 auto}
+@media(max-width:680px){.offer-cards{grid-template-columns:1fr}}
+.offer-card{background:var(--cream);padding:40px 36px 36px;position:relative;overflow:hidden}
+.offer-card.ielts{background:var(--cream2)}
+.offer-card-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--forest);background:rgba(13,61,43,0.1);padding:5px 12px;border-radius:4px;margin-bottom:20px}
+.offer-card.ielts .offer-card-tag{color:var(--gold2);background:rgba(232,149,42,0.12)}
+.offer-card h2{font-family:var(--display);font-size:clamp(24px,3vw,32px);font-weight:700;color:var(--forest);line-height:1.2;letter-spacing:-0.5px;margin-bottom:12px}
+.offer-card.ielts h2{color:var(--ink)}
+.offer-card-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:24px}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.offer-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--body)}
+.offer-list li::before{content:'';width:18px;height:18px;border-radius:50%;background:var(--forest);flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 9l3.5 3.5L14 6' stroke='%23E8952A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.offer-card.ielts .offer-list li::before{background:var(--ink)}
+.offer-accent{position:absolute;bottom:-20px;right:-20px;width:120px;height:120px;border-radius:50%;background:rgba(13,61,43,0.05)}
+.offer-card.ielts .offer-accent{background:rgba(232,149,42,0.08)}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--forest2);padding:20px 6%}
+.trust-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:clamp(20px,4vw,56px);flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.7);font-size:14px}
+.trust-item strong{color:var(--white);font-weight:600}
+.trust-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* SECTIONS */
+.section{padding:80px 6%}
+.section-cream{background:var(--cream)}
+.section-forest{background:var(--forest)}
+.container{max-width:1100px;margin:0 auto}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.eyebrow-light{color:var(--gold)}
+h2.title{font-family:var(--display);font-size:clamp(28px,3.5vw,42px);font-weight:700;color:var(--forest);letter-spacing:-0.8px;line-height:1.15;margin-bottom:10px}
+h2.title-light{color:var(--white)}
+.subtitle{font-size:16px;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:48px}
+.subtitle-light{color:rgba(255,255,255,0.65)}
+
+/* SUBJECTS GRID */
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.subject-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all 0.2s}
+.subject-card:hover{border-color:var(--forest);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,61,43,0.08)}
+.subject-icon{font-size:28px;margin-bottom:14px;display:block}
+.subject-title{font-family:var(--display);font-size:18px;font-weight:600;color:var(--forest);margin-bottom:6px}
+.subject-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.subject-grades{display:inline-block;font-size:11px;font-weight:700;color:var(--gold2);background:rgba(232,149,42,0.1);padding:3px 8px;border-radius:4px;margin-top:10px;letter-spacing:0.5px}
+
+/* HOW IT WORKS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.step{position:relative}
+.step-num{font-family:var(--display);font-size:56px;font-weight:700;color:rgba(13,61,43,0.08);line-height:1;margin-bottom:-8px}
+.step-title{font-family:var(--display);font-size:20px;font-weight:600;color:var(--forest);margin-bottom:8px}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* IELTS SECTION */
+.ielts-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:720px){.ielts-grid{grid-template-columns:1fr}}
+.ielts-scores{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.score-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:16px;text-align:center}
+.score-band{font-family:var(--display);font-size:32px;font-weight:700;color:var(--gold);line-height:1}
+.score-label{font-size:12px;color:rgba(255,255,255,0.55);margin-top:4px}
+.ielts-modules{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.module{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px}
+.module-icon{font-size:22px;width:40px;text-align:center;flex-shrink:0}
+.module-name{font-size:14px;font-weight:600;color:var(--white)}
+.module-desc{font-size:12px;color:rgba(255,255,255,0.55);margin-top:2px}
+
+/* TESTIMONIALS */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.testimonial{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px}
+.testimonial-quote{font-family:var(--display);font-size:15px;font-style:italic;color:var(--body);line-height:1.65;margin-bottom:20px}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:16px;font-weight:700;color:var(--gold);flex-shrink:0}
+.testimonial-name{font-size:14px;font-weight:600;color:var(--forest)}
+.testimonial-role{font-size:12px;color:var(--muted)}
+.stars{color:var(--gold);font-size:13px;letter-spacing:1px;margin-bottom:12px}
+
+/* FREE SESSION */
+.free-session{background:var(--gold);border-radius:16px;padding:48px;text-align:center;max-width:700px;margin:0 auto}
+.free-session h2{font-family:var(--display);font-size:clamp(26px,4vw,38px);font-weight:700;color:var(--white);letter-spacing:-0.5px;margin-bottom:12px;line-height:1.2}
+.free-session p{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:32px;line-height:1.6}
+.btn-dark{background:var(--forest);color:var(--white);font-family:var(--sans);font-weight:700;font-size:15px;padding:14px 32px;border-radius:8px;text-decoration:none;transition:background 0.15s;display:inline-flex;align-items:center;gap:8px;margin:6px}
+.btn-dark:hover{background:var(--forest2)}
+.btn-white-outline{background:transparent;color:var(--white);font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 32px;border-radius:8px;text-decoration:none;border:2px solid rgba(255,255,255,0.5);transition:all 0.15s;display:inline-flex;align-items:center;gap:8px;margin:6px}
+.btn-white-outline:hover{border-color:var(--white)}
+.session-note{font-size:13px;color:rgba(255,255,255,0.7);margin-top:16px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:680px){.contact-grid{grid-template-columns:1fr}}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-icon{width:44px;height:44px;border-radius:10px;background:rgba(13,61,43,0.08);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.contact-val{font-size:15px;font-weight:600;color:var(--forest)}
+.contact-val a{color:var(--forest);text-decoration:none}
+.contact-val a:hover{color:var(--gold2)}
+.availability-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.avail-card{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:16px}
+.avail-day{font-size:13px;font-weight:700;color:var(--forest);margin-bottom:2px}
+.avail-time{font-size:12px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:var(--forest2);padding:32px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:var(--display);font-size:18px;font-weight:700;color:var(--white)}
+.footer-logo span{color:var(--gold)}
+footer p{font-size:12px;color:rgba(255,255,255,0.4)}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:var(--white);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.15s;font-size:28px}
+.wa-float:hover{transform:scale(1.08)}
+
+@media(max-width:600px){
+  .section{padding:60px 5%}
+  nav{padding:0 5%}
+  .hero{padding:56px 5% 0}
+  .offer-card{padding:28px 24px}
+  .free-session{padding:36px 24px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Study<span>pedia</span></div>
+  <div class="nav-right">
+    <a href="tel:4168757296" class="nav-phone">416-875-7296</a>
+    <a href="https://wa.me/14168757296?text=Hi%2C%20I'd%20like%20to%20book%20a%20free%20introductory%20session" class="nav-cta" target="_blank" rel="noopener">Book free session</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Toronto & GTA · Online & In-Person</div>
+    <h1>Where students<br>find their<br><em>confidence.</em></h1>
+    <p class="hero-sub">Expert tutoring for Grades 3–8 and IELTS preparation — aligned to the Ontario curriculum, delivered by a patient and experienced teacher who gets results.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/14168757296?text=Hi%2C%20I'd%20like%20to%20book%20a%20free%20introductory%20session" class="btn-gold" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.54 4.05 1.481 5.752L.057 23.8a.5.5 0 0 0 .614.657l6.257-1.643A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.52-5.194-1.426l-.373-.22-3.868 1.015.975-3.76-.242-.386A9.943 9.943 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp to book
+      </a>
+      <a href="tel:4168757296" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6.18 6.18l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call us
+      </a>
+    </div>
+  </div>
+
+  <div class="offer-cards">
+    <div class="offer-card">
+      <div class="offer-card-tag">Academic tutoring</div>
+      <h2>Grades 3–8<br>Math, English & Science</h2>
+      <p class="offer-card-sub">Ontario Curriculum-aligned sessions that build genuine understanding, not just exam scores. One-on-one and small group options available.</p>
+      <ul class="offer-list">
+        <li>Math — fractions, algebra, geometry, word problems</li>
+        <li>English — reading comprehension, writing, grammar</li>
+        <li>Science — curriculum concepts, lab report writing</li>
+        <li>EQAO preparation — Grades 3 and 6 provincial tests</li>
+        <li>Homework support — daily assignments covered</li>
+        <li>Concept-based learning — understanding before memorising</li>
+      </ul>
+      <div class="offer-accent"></div>
+    </div>
+    <div class="offer-card ielts">
+      <div class="offer-card-tag">IELTS preparation</div>
+      <h2>IELTS General<br>& Academic</h2>
+      <p class="offer-card-sub">Structured preparation targeting Band 6.5–8.0. Full coverage of all four modules with timed practice tests and personalised feedback.</p>
+      <ul class="offer-list">
+        <li>Listening — accent recognition, note-taking strategies</li>
+        <li>Reading — skimming, scanning, True/False/NG tactics</li>
+        <li>Writing — Task 1 & Task 2 with examiner-standard feedback</li>
+        <li>Speaking — fluency, pronunciation, Part 2 long turns</li>
+        <li>Full mock tests — under real exam conditions</li>
+        <li>Score gap analysis — personalised improvement plan</li>
+      </ul>
+      <div class="offer-accent"></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><strong>5+ years</strong> teaching experience</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><strong>Ontario</strong> curriculum-aligned</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><strong>Online & in-person</strong> sessions</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><strong>Weekday & weekend</strong> batches</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item"><strong>Free</strong> introductory session</div>
+  </div>
+</div>
+
+<section class="section section-cream" id="subjects">
+  <div class="container">
+    <div class="eyebrow">What we teach</div>
+    <h2 class="title">Every subject. Every grade level.</h2>
+    <p class="subtitle">Sessions are tailored to where your child actually is — not where the class assumes they are.</p>
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <span class="subject-icon">➕</span>
+        <div class="subject-title">Mathematics</div>
+        <div class="subject-desc">Number sense, fractions, algebra foundations, geometry, data management, and word problem strategies.</div>
+        <div class="subject-grades">Grades 3–8</div>
+      </div>
+      <div class="subject-card">
+        <span class="subject-icon">📖</span>
+        <div class="subject-title">English Language Arts</div>
+        <div class="subject-desc">Reading comprehension, essay structure, grammar, vocabulary, and creative writing aligned to Ontario expectations.</div>
+        <div class="subject-grades">Grades 3–8</div>
+      </div>
+      <div class="subject-card">
+        <span class="subject-icon">🔬</span>
+        <div class="subject-title">Science</div>
+        <div class="subject-desc">Biology, chemistry, physics concepts by grade, plus lab report writing and science fair project guidance.</div>
+        <div class="subject-grades">Grades 4–8</div>
+      </div>
+      <div class="subject-card">
+        <span class="subject-icon">📝</span>
+        <div class="subject-title">EQAO Preparation</div>
+        <div class="subject-desc">Targeted preparation for Ontario's Grade 3 and Grade 6 provincial assessments in reading, writing, and math.</div>
+        <div class="subject-grades">Grades 3 & 6</div>
+      </div>
+      <div class="subject-card">
+        <span class="subject-icon">🎯</span>
+        <div class="subject-title">IELTS Academic</div>
+        <div class="subject-desc">University and professional registration pathway. All four modules. Target band 6.5–7.5 for Canadian university entry.</div>
+        <div class="subject-grades">All ages</div>
+      </div>
+      <div class="subject-card">
+        <span class="subject-icon">✈️</span>
+        <div class="subject-title">IELTS General Training</div>
+        <div class="subject-desc">Immigration, PR applications, and work visa pathways. Letter writing, everyday reading, and conversational fluency.</div>
+        <div class="subject-grades">All ages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <div class="eyebrow">How it works</div>
+    <h2 class="title">Simple, structured, effective.</h2>
+    <p class="subtitle">No long contracts. No complicated onboarding. Just learning that works.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Free introductory session</div>
+        <div class="step-desc">A 30-minute no-cost session to understand your child's current level, goals, and learning style. No pressure, no commitment.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Personalised plan</div>
+        <div class="step-desc">A custom learning plan based on the assessment — specific gaps to address, topics to cover, and a realistic timeline.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Regular sessions</div>
+        <div class="step-desc">Weekday or weekend sessions, online or in-person across the GTA — scheduled around your family's routine.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Progress you can see</div>
+        <div class="step-desc">Regular updates so you always know how your child is improving. Adjustments made as needed, not at the end of the term.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ielts" style="background:var(--forest)">
+  <div class="container">
+    <div class="eyebrow eyebrow-light">IELTS deep dive</div>
+    <h2 class="title title-light" style="margin-bottom:10px">Every module. Examiner-standard feedback.</h2>
+    <p class="subtitle subtitle-light" style="margin-bottom:40px">Whether you need IELTS for university, immigration, or professional registration — we build the specific skills each module demands.</p>
+    <div class="ielts-grid">
+      <div>
+        <div class="ielts-modules">
+          <div class="module">
+            <div class="module-icon">🎧</div>
+            <div>
+              <div class="module-name">Listening</div>
+              <div class="module-desc">Accent recognition across British, Australian, and North American speakers. Note-taking under time pressure. Section 3 and 4 academic lecture strategies.</div>
+            </div>
+          </div>
+          <div class="module">
+            <div class="module-icon">📄</div>
+            <div>
+              <div class="module-name">Reading</div>
+              <div class="module-desc">Skimming and scanning techniques. True/False/Not Given — the question type most students lose marks on. Matching headings and sentence completion.</div>
+            </div>
+          </div>
+          <div class="module">
+            <div class="module-icon">✍️</div>
+            <div>
+              <div class="module-name">Writing</div>
+              <div class="module-desc">Task 1 — graphs, charts, diagrams, and letter writing. Task 2 — structured academic essays with coherence and lexical resource feedback aligned to IELTS band descriptors.</div>
+            </div>
+          </div>
+          <div class="module">
+            <div class="module-icon">🗣️</div>
+            <div>
+              <div class="module-name">Speaking</div>
+              <div class="module-desc">Part 1 fluency, Part 2 long-turn preparation, Part 3 discussion. Pronunciation, grammar range, and natural pacing — not scripted answers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Target band scores</div>
+        <div class="ielts-scores">
+          <div class="score-card">
+            <div class="score-band">6.5</div>
+            <div class="score-label">Most Canadian<br>universities</div>
+          </div>
+          <div class="score-card">
+            <div class="score-band">7.0</div>
+            <div class="score-label">Competitive programs<br>& PR applications</div>
+          </div>
+          <div class="score-card">
+            <div class="score-band">7.5</div>
+            <div class="score-label">Medicine, law<br>& nursing</div>
+          </div>
+          <div class="score-card">
+            <div class="score-band">8.0</div>
+            <div class="score-label">Top-tier universities<br>& professional bodies</div>
+          </div>
+        </div>
+        <div style="background:rgba(232,149,42,0.1);border:1px solid rgba(232,149,42,0.25);border-radius:10px;padding:20px;margin-top:16px">
+          <div style="font-size:13px;font-weight:700;color:var(--gold);margin-bottom:6px">General vs Academic IELTS</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6">Not sure which test you need? We'll help you identify the right pathway in your first free session — and build the preparation plan from there.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="testimonials">
+  <div class="container">
+    <div class="eyebrow">What parents say</div>
+    <h2 class="title">Results that speak.</h2>
+    <p class="subtitle" style="margin-bottom:40px">From families across the GTA who've seen the difference consistent, personalised attention makes.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"My daughter went from dreading math to actually looking forward to her sessions. Her Grade 5 report card was the best she's ever had. The patience and the way concepts are explained — it just clicks."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya S.</div>
+            <div class="testimonial-role">Parent of Grade 5 student · Brampton</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"I needed a 7.0 for my nursing registration and had failed twice before. After eight weeks of focused IELTS preparation, I scored 7.5 overall. The writing and speaking modules specifically made all the difference."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Anita R.</div>
+            <div class="testimonial-role">IELTS Academic · Mississauga</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"Our son's EQAO results came back and he was in the top 15% of his school. Six months ago he was struggling with basic fractions. The personalised approach and consistent homework support made all the difference."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Rajesh & Meena K.</div>
+            <div class="testimonial-role">Parents of Grade 6 student · Oakville</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="book">
+  <div class="container">
+    <div class="free-session">
+      <h2>Start with a free session — no commitment required.</h2>
+      <p>Bring your child's latest report card or your IELTS score report. We'll tell you exactly where the gaps are and what it takes to close them.</p>
+      <div>
+        <a href="https://wa.me/14168757296?text=Hi%2C%20I'd%20like%20to%20book%20a%20free%20introductory%20session%20for%20my%20child" class="btn-dark" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.54 4.05 1.481 5.752L.057 23.8a.5.5 0 0 0 .614.657l6.257-1.643A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.52-5.194-1.426l-.373-.22-3.868 1.015.975-3.76-.242-.386A9.943 9.943 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp to book
+        </a>
+        <a href="tel:4168757296" class="btn-white-outline">Call 416-875-7296</a>
+      </div>
+      <div class="session-note">Limited slots available · Weekday & weekend sessions · Toronto & GTA</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="contact">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <h2 class="title">Get in touch.</h2>
+    <p class="subtitle" style="margin-bottom:40px">Prefer to email first? Have questions about which programme fits your child? Reach out — we respond within a few hours.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">Phone & WhatsApp</div>
+            <div class="contact-val"><a href="tel:4168757296">416-875-7296</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:mgmansigupta12@gmail.com">mgmansigupta12@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">Toronto & GTA — Online & In-Person<br><span style="font-weight:400;font-size:13px;color:var(--muted)">We come to you, or meet online</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Session availability</div>
+        <div class="availability-grid">
+          <div class="avail-card">
+            <div class="avail-day">Monday – Friday</div>
+            <div class="avail-time">After school · 3:30 pm – 8:00 pm</div>
+          </div>
+          <div class="avail-card">
+            <div class="avail-day">Saturday</div>
+            <div class="avail-time">Morning & afternoon batches</div>
+          </div>
+          <div class="avail-card">
+            <div class="avail-day">Sunday</div>
+            <div class="avail-time">Morning sessions available</div>
+          </div>
+          <div class="avail-card" style="background:var(--forest);border-color:var(--forest)">
+            <div class="avail-day" style="color:var(--gold)">Free first session</div>
+            <div class="avail-time" style="color:rgba(255,255,255,0.6)">Any day · Book via WhatsApp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Study<span>pedia</span></div>
+  <p>© 2026 Studypedia · Toronto & GTA · studypedia.academy</p>
+</footer>
+
+<a href="https://wa.me/14168757296?text=Hi%2C%20I'd%20like%20to%20know%20more%20about%20Studypedia%20tutoring" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.54 4.05 1.481 5.752L.057 23.8a.5.5 0 0 0 .614.657l6.257-1.643A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.67-.52-5.194-1.426l-.373-.22-3.868 1.015.975-3.76-.242-.386A9.943 9.943 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+</body>
+</html>
